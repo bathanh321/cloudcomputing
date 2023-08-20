@@ -46,16 +46,33 @@
                         </li>
                     </ul>
                     <div class="user_option">
-
-                        <a href="/users/login">
+                        {{#if user}}
+                <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>Welcome, {{ user.name }}</span>
+                     </button>
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="/users/logout">Logout</a></li>
+                    </div>
+                </div>
+                {{else}}
+                <a href="/users/login">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>
+                        Login
+                    </span>
+                </a>
+                {{/if}}
+                        {{!-- <a href="/users/login">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <span>
-                                Login
+                                {{ user.name }}
                             </span>
                         </a>
                         <a href="">
                             Cart <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        </a>
+                        </a> --}}
                         <form class="form-inline">
                             <input type="search" placeholder="Search" />
                             <button class="btn btn-primary" type="submit">

@@ -44,6 +44,7 @@ router.post('/login', async (req, res) => {
   const password = data.password;
   const users = await UserModel.findOne({email: email})
   if(users.password === password){
+    req.session.users = users;
     res.redirect('/shop')
   }else{
     res.render('users/login');

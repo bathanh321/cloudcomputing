@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,7 +14,11 @@ var app = express();
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : false}))
-
+app.use(session({
+  secret: 'be6f20598b835cd8feb99e618b24879d7b61fc56c2f663f228aa991651dbcb18', // Replace with your secret key
+  resave: false,
+  saveUninitialized: true,
+}));
 var hbs = require('hbs');
 hbs.registerHelper('dateFormat', require('handlebars-dateformat')); 
 var mongoose = require('mongoose');
@@ -53,6 +58,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.listen(process.env.PORT || 3001);
-
-
 module.exports = app;

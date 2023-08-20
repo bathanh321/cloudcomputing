@@ -2,15 +2,14 @@ const express = require('express');
 const router = express.Router();
 const FigureModel = require('../models/FigureModels'); // Import FigureModel
 const DollModel = require('../models/DollModels'); // Import DollModel
-const UserModel = require('../models/UserModels');
 
 router.get('/', async (req, res) => {
         const figures = await FigureModel.find();
         const dolls = await DollModel.find();
-        const users = await UserModel.find();
+        const user = req.session.users;
         const products = [...figures, ...dolls]; // Combine both arrays
 
-        res.render('shop/shop', { products : products, users: users });
+        res.render('shop/shop', { products : products, user: user });
 });
 
 router.get('/detail/:id', async (req, res) => {
