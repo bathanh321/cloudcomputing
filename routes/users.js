@@ -49,7 +49,19 @@ router.post('/login', async (req, res) => {
   }else{
     res.render('users/login');
   }
-  
-
 });
+router.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+      if (err) {
+          console.log('Error while logging out:', err);
+          return res.redirect('/'); 
+      }
+      res.redirect('/shop');
+  });
+});
+router.get('/profile/:id', async (req, res)=>{
+    const id = req.params.id;
+    const user = await UserModel.findById(id);
+    res.render('users/profile', {user: user})
+})
 module.exports = router;

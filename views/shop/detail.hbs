@@ -1,58 +1,57 @@
 <div class="hero_area">
-        <!-- header section strats -->
-        <header class="header_section">
-            <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="/shop">
-                    <span>
-                        ATN Shop
-                    </span>
-                </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav  ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Contact Us</a>
-                        </li>
-                    </ul>
-                    <div class="user_option">
-                        <a href="">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                                Login
-                            </span>
-                        </a>
-                        <a href="">
-                            Cart <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        </a>
-                        <form class="form-inline">
-                            <input type="search" placeholder="Search" />
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="/shop">
+                <span>
+                    ATN Shop
+                </span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="user_option">
+                    <a href="">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>
+                            Login
+                        </span>
+                    </a>
+                    <a href="">
+                        Cart <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    </a>
+                    <form class="form-inline">
+                        <input type="search" placeholder="Search" />
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </div>
-            </nav>
-        </header>
-        <section class="slider_section">
-            <div class="slider_container">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="detail-box">
-                                            <h1>
-                                                Welcome To Our <br>
-                                                Toy Shop
-                                            </h1>
-                                            <p>
-                                                Tech otaku save the world
-                                            </p>
-                                        </div>
+            </div>
+        </nav>
+    </header>
+    <section class="slider_section">
+        <div class="slider_container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Welcome To Our <br>
+                                            Toy Shop
+                                        </h1>
+                                        <p>
+                                            Tech otaku save the world
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -60,162 +59,162 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
 
 <!-- content -->
 <section class="py-5">
-  <div class="container">
-    <div class="row gx-5">
-      <aside class="col-lg-6">
-        <div class="border rounded-4 mb-3 d-flex justify-content-center">
-            <img width="400" height="500" src="/images/{{product.image}}" />
-        </div>
-        
-        <!-- thumbs-wrap.// -->
-        <!-- gallery-wrap .end// -->
-      </aside>
-      <main class="col-lg-6">
-        <div class="ps-lg-3">
-          <h4 class="title text-dark">
-            {{product.brand}} <br />
-            {{product.model}}
-          </h4>
-
-          </div>
-
-          <div class="mb-3">
-            <span class="h5">Price: ${{product.price}}</span>
-          </div>
-          <div class="row">
-
-            <dt class="col-3">Date</dt>
-            <dd class="col-9">{{dateFormat product.date "DD/MM/YYYY"}}</dd>
-
-
-            <dt class="col-3">Brand</dt>
-            <dd class="col-9">{{product.brand}}</dd>
-          </div>
-
-          <hr />
-
-          <div class="row mb-4">
-            <!-- col.// -->
-            <form action="/shop/cart" method="post">
-                <input type="hidden" name="product_id" value="{{product._id}}">
-                <input type="hidden" name="price" value="{{product.price}}">
-                <div class="col-md-4 col-6 mb-3">
-                    <label class="mb-2 d-block">Quantity</label>
-                    <div class="input-group mb-3" style="width: 170px;">
-                        <button class="btn btn-white border border-secondary px-3" type="button" id="button-minus"
-                            data-mdb-ripple-color="dark">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input type="text" class="form-control text-center border border-secondary" name="quantity"
-                            placeholder="{{product.quantity}}" min="1" max="{{product.quantity}}" value="1" id="quantity-input" />
-                        <button class="btn btn-white border border-secondary px-3" type="button" id="button-plus"
-                            data-mdb-ripple-color="dark">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
+    <div class="container">
+        <div class="row gx-5">
+            <aside class="col-lg-6">
+                <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                    <img width="400" height="500" src="/images/{{product.image}}" />
                 </div>
+
+            </aside>
+            <main class="col-lg-6">
+                <div class="ps-lg-3">
+                    <h4 class="title text-dark">
+                        {{product.brand}} <br />
+                        {{product.model}}
+                    </h4>
+
+                </div>
+
+                <div class="mb-3">
+                    <span class="h5">Price: ${{product.price}}</span>
+                </div>
+                <div class="row">
+
+                    <dt class="col-3">Date</dt>
+                    <dd class="col-9">{{dateFormat product.date "DD/MM/YYYY"}}</dd>
+
+
+                    <dt class="col-3">Brand</dt>
+                    <dd class="col-9">{{product.brand}}</dd>
+                </div>
+
+                <hr />
+
+                <div class="row mb-4">
+                    <!-- col.// -->
+                    <form action="/shop/cart" method="post">
+                        <input type="hidden" name="product_id" value="{{product._id}}">
+                        <input type="hidden" name="price" value="{{product.price}}">
+                        <div class="col-md-4 col-6 mb-3">
+                            <label class="mb-2 d-block">Quantity</label>
+                            <div class="input-group mb-3" style="width: 170px;">
+                                <button class="btn btn-white border border-secondary px-3" type="button"
+                                    id="button-minus" data-mdb-ripple-color="dark">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <input type="text" class="form-control text-center border border-secondary"
+                                    name="quantity" placeholder="{{product.quantity}}" min="1"
+                                    max="{{product.quantity}}" value="1" id="quantity-input" />
+                                <button class="btn btn-white border border-secondary px-3" type="button"
+                                    id="button-plus" data-mdb-ripple-color="dark">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
                 </div>
                 <button type="submit" class="btn btn-primary shadow-0">
                     <i class="me-1 fa fa-shopping-basket"></i> Add to cart
                 </button>
-            </form>
+                </form>
         </div>
-      </main>
+        </main>
     </div>
-  </div>
+    </div>
 </section>
 <!-- content -->
 <section class="info_section  layout_padding2-top">
-        <div class="social_container">
-            <div class="social_box">
-                <a href="">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-youtube" aria-hidden="true"></i>
-                </a>
-            </div>
+    <div class="social_container">
+        <div class="social_box">
+            <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
         </div>
-        <div class="info_container ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <h6>
-                            ABOUT US
-                        </h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                        </p>
+    </div>
+    <div class="info_container ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <h6>
+                        ABOUT US
+                    </h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="info_form ">
+                        <h5>
+                            Newsletter
+                        </h5>
+                        <form action="#">
+                            <input type="email" placeholder="Enter your email">
+                            <button>
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="info_form ">
-                            <h5>
-                                Newsletter
-                            </h5>
-                            <form action="#">
-                                <input type="email" placeholder="Enter your email">
-                                <button>
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h6>
-                            NEED HELP
-                        </h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                        </p>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h6>
-                            CONTACT US
-                        </h6>
-                        <div class="info_link-box">
-                            <a href="">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span> Gb road 123 london Uk </span>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                <span>+01 12345678901</span>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span> demo@gmail.com</span>
-                            </a>
-                        </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h6>
+                        NEED HELP
+                    </h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h6>
+                        CONTACT US
+                    </h6>
+                    <div class="info_link-box">
+                        <a href="">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span> Gb road 123 london Uk </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>+01 12345678901</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span> demo@gmail.com</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- footer section -->
-        <footer class=" footer_section">
-            <div class="container">
-                <p>
-                    &copy; <span id="displayYear"></span> All Rights Reserved By
-                    <a href="https://html.design/">Free Html Templates</a>
-                </p>
-            </div>
-        </footer>
-        <!-- footer section -->
+    </div>
+    <!-- footer section -->
+    <footer class=" footer_section">
+        <div class="container">
+            <p>
+                &copy; <span id="displayYear"></span> All Rights Reserved By
+                <a href="https://html.design/">Free Html Templates</a>
+            </p>
+        </div>
+    </footer>
+    <!-- footer section -->
 
-    </section>
-    <script>
+</section>
+<script>
     const quantityInput = document.getElementById("quantity-input");
     const buttonMinus = document.getElementById("button-minus");
     const buttonPlus = document.getElementById("button-plus");
@@ -227,8 +226,8 @@
     });
 
     buttonPlus.addEventListener("click", () => {
-        if (quantityInput.value < {{product.quantity}}) {
-            quantityInput.value = parseInt(quantityInput.value) + 1;
-        }
+        if (quantityInput.value < {{ product.quantity }}) {
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+    }
     });
 </script>

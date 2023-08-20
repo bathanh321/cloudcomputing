@@ -14,7 +14,6 @@ var upload = multer({ storage: storage });
 
 router.get('/', async (req, res) => {
     var dolls = await dollModel.find();
-    //res.send(dolls);
     res.render('doll/dollList', { dolls: dolls })
 })
 router.get('/delete/:id', async (req, res) => {
@@ -25,7 +24,6 @@ router.get('/add', async (req, res) => {
     res.render('doll/dollAdd')
 })
 router.post('/add', upload.single('image'), async (req, res) => {
-
     const doll = req.body;
     doll.image = req.file.filename;
     await dollModel.create(doll)
@@ -49,7 +47,6 @@ router.post('/edit/:id', upload.single('image'), async (req, res) => {
         doll.image = req.file.filename;
     }
     var originaldoll = await dollModel.findById(id)
-
     Object.keys(doll).forEach((key) => {
         if (doll[key] !== "" && doll[key] !== undefined) {
             originaldoll[key] = doll[key];
