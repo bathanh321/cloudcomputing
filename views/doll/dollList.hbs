@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>doll List</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">ATN Shop</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/doll">Dolls</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/figure">Figures</a>
+                </li>
+
+            </ul>
+            <form action="/doll/search" class="d-flex" role="search" method="post">
+                <input class="form-control me-2" type="search" name="keyword" placeholder="Search by model"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div>
+        <div class="container text-center:mt-3 mb-3">
+            <th><a href="/doll/add" class="btn btn-primary">ADD</a></th>
+
+            <table class="table table-success" border="1">
+                <tr>
+                    <th colspan="8">
+                        <h1 class="text text-primary text-center">DOLL LIST</h1>
+                    </th>
+                </tr>
+                <th colspan="7">
+                    <select name="" id="" class="form-control" onchange="window.location.href=this.value">
+                        <option value="">Select an option to sort</option>
+                        <option value="/doll/sort/model/asc">Sort Model by A-Z</option>
+                        <option value="/doll/sort/model/desc">Sort Model by Z-A</option>
+                        <option value="/doll/sort/quantity/asc">Sort Quantity by ASC</option>
+                        <option value="/doll/sort/quantity/desc">Sort Quantity by DESC</option>
+                    </select>
+                </th>
+                <tr>
+                    <th>Model</th>
+                    <th>Brand</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+                {{#each dolls }}
+                <tr>
+                    <td>{{model}}</td>
+                    <td>{{brand}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{price}}</td>
+                    <td>{{dateFormat date "DD/MM/YYYY"}}</td>
+                    <td><img src="/images/{{image}}" alt="" width="160" height="200"></td>
+                    <td><a class="btn btn-warning" href="/doll/edit/{{_id}}">Edit</a>
+                        <a class="btn btn-danger" href="/doll/delete/{{ _id }}"
+                            onclick="return confirm('Are you sure to delete this product?')">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>

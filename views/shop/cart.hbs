@@ -1,0 +1,41 @@
+<html>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">ATN Shop</a>   
+        </div>
+    </nav>
+    <div>
+        <div class="container text-center:mt-3 mb-3">
+            <table class="table table-success" border="1">
+                <tr>
+                    <th colspan="6">
+                        <h1 class="text text-primary text-center">CART LIST</h1>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Model</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td>{{product.model}}</td>
+                    <th><img src="/images/{{product.image}}" alt="" width="160" height="200"></th>
+                    <td>${{price}}</td>
+                    <td>{{quantity}}</td>
+                    <td>${{total}}</td>
+                    <td><a class="btn btn-danger" href="shop/cart/delete/{{ _id }}"
+                            onclick="return confirm('Are you sure to delete this product form cart?')">Delete</a></td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>

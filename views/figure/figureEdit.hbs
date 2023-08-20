@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-dark mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">ATN Shop</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/doll">Dolls</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/figure">Figures</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<a href="/figure" class="btn btn-primary"
+    onclick="return confirm('Are you want to back to main screen? Your data may not be saved')">Back</a>
+<div class="container col-md-8 mt-4 mb-3 card bg-light">
+
+    <form action="/figure/edit/{{figures._id}}" method="post" enctype="multipart/form-data">
+        <h1 class="text text-danger text-center">Edit figure</h1>
+        <div class="form-group mt-2">
+            <label for="">Model: </label>
+            <input class="form-control" type="text" name="model" value="{{figures.model}}" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="">Brand: </label>
+            <input class="form-control" type="text" name="brand" value="{{figures.brand}}" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="">Quantity: </label>
+            <input class="form-control" type="number" name="quantity" value="{{figures.quantity}}" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="">Price: </label>
+            <input class="form-control" type="text" name="price" value="{{figures.price}}" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="">Date: </label>
+            <input class="form-control" type="date" name="date" value="{{dateFormat figures.date "YYYY-MM-DD"}}" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="">Image: </label>
+            <img src="/images/{{ figures.image }}" width="100" height="100">
+            <input class="form-control" type="file" name="image" value="{{figures.image}}" required>
+        </div>
+        <div class="form-group mt-3 mb-3 text-center">
+            <input type="submit" class="btn btn-primary" value="Edit">
+        </div>
+    </form>
+</div>
