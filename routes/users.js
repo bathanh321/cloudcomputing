@@ -69,4 +69,12 @@ router.get('/profile/:id', async (req, res)=>{
 
     
 })
+router.get('/admin', async (req, res) => {
+  const cartItems = await CartModel.find();
+  res.render('users/admin', { cartItems: cartItems});
+});
+router.get('/admin/delete/:id', async (req, res) => {
+  await CartModel.findByIdAndDelete(req.params.id)
+    res.redirect('users/admin');
+});
 module.exports = router;

@@ -15,7 +15,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : false}))
 app.use(session({
-  secret: 'be6f20598b835cd8feb99e618b24879d7b61fc56c2f663f228aa991651dbcb18', // Replace with your secret key
+  secret: 'be6f20598b835cd8feb99e618b24879d7b61fc56c2f663f228aa991651dbcb18',
   resave: false,
   saveUninitialized: true,
 }));

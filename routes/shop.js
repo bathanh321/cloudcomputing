@@ -13,13 +13,6 @@ router.get('/', async (req, res) => {
     res.render('shop/shop', { products: products, user: user });
 });
 
-router.post('/search', async (req, res) => {
-    const keyword = req.body.keyword;
-    const figureResults = await FigureModel.find({ model: new RegExp(keyword, "i") });
-    const dollResults = await DollModel.find({ model: new RegExp(keyword, "i") });
-    const user = req.session.users;
-    res.render('shop/search', { figureResults: figureResults, dollResults: dollResults, user: user });
-});
 
 router.get('/detail/:id', async (req, res) => {
     var id = req.params.id;
