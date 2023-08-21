@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const FigureModel = require('../models/FigureModels');
 const DollModel = require('../models/DollModels');
+const CartModel = require('../models/CartModels');
 
 router.get('/', async (req, res) => {
         const figures = await FigureModel.find();
@@ -16,15 +17,17 @@ router.get('/detail/:id', async (req, res) => {
         var id = req.params.id;
         var figures = await FigureModel.findById(id);
         var dolls = await DollModel.findById(id);
+        const user = req.session.users;
         if (figures) {
-                res.render('shop/detail', { product: figures });
+                res.render('shop/detail', { product: figures, user: user });
             } else if (dolls) {
-                res.render('shop/detail', { product: dolls });
+                res.render('shop/detail', { product: dolls, user: user });
             }
      })
 router.post('/cart', async (req, res) => {
         const data = req.body;
         const id = data.product_id;
+        const user = req.session.users;
         const product = await FigureModel.findById(id) || await DollModel.findById(id);
         const price = data.price; 
         const quantity = parseInt(data.quantity); 
@@ -39,9 +42,14 @@ router.post('/checkout', async (req, res) => {
     const product = await FigureModel.findById(productId) || await DollModel.findById(productId);
     if (product) {
         product.quantity -= quantity;
-        await product.save();
+        const newCartItem = new CartModel({
+            product_id: productId,
+            quantity: quantity,
+            price: product.price,
+            total: product.price * quantity,
+        });
+        await newCartItem.save();
     }
-        
     res.render('shop/checkout');
 });
 module.exports = router;
