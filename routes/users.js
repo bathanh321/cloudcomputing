@@ -22,18 +22,23 @@ router.get('/register', async (req, res)=> {
   res.render('users/register')
 });
 router.post('/register', upload.single('avatar'), async(req, res)=>{
+  try {
     const users = req.body;
     users.avatar = req.file.filename;
     const password = users.password;
     const confirmPassword = users.confirmPassword;
-    if(password === confirmPassword){
-      await UserModel.create(users)
-        .then(console.log('Register successfully'))
-        .catch(err => console.log(err));
-    res.render('users/login', {users: users});
-    }else{
-      res.render("password doesn't match");
+
+    if (password === confirmPassword) {
+      await UserModel.create(users);
+      console.log('Register successfully');
+      res.render('users/login', { users: users });
+    } else {
+      res.render('error', { message: "Passwords don't match" });
     }
+  } catch (error) {
+    console.error(error);
+    res.render('error', { message: 'An error occurred during registration' });
+  }
 })
 router.get('/login', async (req, res) => {
   res.render('users/login');
@@ -43,12 +48,18 @@ router.post('/login', async (req, res) => {
   console.log(data)
   const email = data.email;
   const password = data.password;
-  const users = await UserModel.findOne({email: email})
-  if(users.password === password){
-    req.session.users = users;
-    res.redirect('/shop')
-  }else{
-    res.render('users/login');
+  try {
+    const user = await UserModel.findOne({ email: email });
+
+    if (user.password === password) {
+      req.session.users = user;
+      res.redirect('/shop');
+    } else {
+      res.render('error', { message: 'Invalid email or password' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.render('error', { message: 'An error occurred during login' });
   }
 });
 router.get('/logout', (req, res) => {
