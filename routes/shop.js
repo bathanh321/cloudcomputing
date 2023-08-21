@@ -42,6 +42,7 @@ router.post('/checkout', async (req, res) => {
     const product = await FigureModel.findById(productId) || await DollModel.findById(productId);
     if (product) {
         product.quantity -= quantity;
+        await product.save();
         const newCartItem = new CartModel({
             product_id: productId,
             quantity: quantity,
