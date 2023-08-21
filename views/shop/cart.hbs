@@ -1,11 +1,81 @@
 <html>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">ATN Shop</a>
-        </div>
-    </nav>
+        <div class="hero_area">
+        <header class="header_section">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/shop">
+                    <span>
+                        ATN Shop
+                    </span>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="user_option">
+                        {{#if user}}
+                        <div class="dropdown">
+                            <a href="/users/profile/{{user._id}}" class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>
+                                    Welcome, {{user.name}}!
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/users/profile/{{user._id}}"><i class="fa-solid fa-file-invoice"></i>
+                                <span>Profile</span>
+                                </a></li>
+                                <li><a class="dropdown-item" href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i>
+                                        <span>
+                                            Logout
+                                        </span></a></li>
+                            </ul>
+                        </div>
+                        {{else}}
+                        <a href="/users/login">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>
+                                Login
+                            </span>
+                        </a>
+                        {{/if}}
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="slider_section">
+            <div class="slider_container">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Welcome To Our <br>
+                                                Toy Shop
+                                            </h1>
+                                            <p>
+                                                Tech otaku save the world
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <div>
         <div class="container text-center:mt-3 mb-3">
             <form action="/shop/checkout" method="post">

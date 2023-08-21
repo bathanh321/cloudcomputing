@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const UserModel = require('../models/UserModels');
+const CartModel = require('../models/CartModels');
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -60,8 +61,12 @@ router.get('/logout', (req, res) => {
   });
 });
 router.get('/profile/:id', async (req, res)=>{
-    const id = req.params.id;
-    const user = await UserModel.findById(id);
-    res.render('users/profile', {user: user})
+  const id = req.params.id;
+  const user = await UserModel.findById(id);
+  const cartItem = await CartModel.find({ userId: id });
+    
+      res.render('users/profile', {user: user, cartItem: cartItem})
+
+    
 })
 module.exports = router;
