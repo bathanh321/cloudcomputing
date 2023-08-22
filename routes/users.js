@@ -28,6 +28,11 @@ router.post('/register', upload.single('avatar'), async(req, res)=>{
     const password = users.password;
     const confirmPassword = users.confirmPassword;
 
+    const existUser = await UserModel.findOne({email: users.email})
+    if(existUser){
+      res.render('error', {message: 'Email is already exist'})
+    }
+
     if (password === confirmPassword) {
       await UserModel.create(users);
       console.log('Register successfully');
@@ -48,7 +53,7 @@ router.post('/login', async (req, res) => {
   console.log(data)
   const email = data.email;
   const password = data.password;
-  try {
+  
     const user = await UserModel.findOne({ email: email });
 
     if (user.password === password) {
@@ -57,10 +62,8 @@ router.post('/login', async (req, res) => {
     } else {
       res.render('error', { message: 'Invalid email or password' });
     }
-  } catch (error) {
-    console.error(error);
     res.render('error', { message: 'An error occurred during login' });
-  }
+  
 });
 router.get('/logout', (req, res) => {
   req.session.destroy(err => {
