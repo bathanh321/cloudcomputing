@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>doll List</title>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-2 bg-dark">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/admin">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/doll">Dolls</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/figure">Figures</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <section style="background-color: #eee;">
+  <div class="container py-5">
+
+
+    <div class="row">
+      <div class="col-lg-4">
+        
+          </div>
+        </div>
+        <div class="row">
+
+
+          <section class="py-5">
+    <div class="container">
+        <div class="row gx-5">
+            <aside class="col-lg-6">
+                <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                    <img width="400" height="500" src="/images/{{cartItem.productImage}}" />
+                </div>
+
+            </aside>
+            <main class="col-lg-6">
+                <div class="ps-lg-3">
+                    <h4 class="title text-dark">
+                        {{product.model}}
+                    </h4>
+
+                </div>
+
+                <div class="mb-3">
+                    <span class="h5">Price: ${{product.price}}</span>
+                </div>
+                <div class="row">
+
+                    <dt class="col-3">Date</dt>
+                    <dd class="col-9">{{dateFormat product.date "DD/MM/YYYY"}}</dd>
+
+
+                    <dt class="col-3">Brand</dt>
+                    <dd class="col-9">{{product.brand}}</dd>
+                </div>
+
+                <hr />
+
+                <div class="row mb-4">
+                    <!-- col.// -->
+        </div>
+        </main>
+    </div>
+    </div>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+    </div>
+</body>
+
+</html>

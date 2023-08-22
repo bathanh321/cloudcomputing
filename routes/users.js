@@ -3,6 +3,8 @@ var router = express.Router();
 const multer = require('multer');
 const UserModel = require('../models/UserModels');
 const CartModel = require('../models/CartModels');
+const FigureModel = require('../models/FigureModels');
+const DollModel = require('../models/DollModels');
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -85,10 +87,27 @@ router.get('/profile/:id', async (req, res)=>{
 })
 router.get('/admin', async (req, res) => {
   const cartItems = await CartModel.find();
-  res.render('users/admin', { cartItems: cartItems});
+  var totalQuantity = 0
+  var totalPrice = 0
+  for(var i = 0; i < cartItems.length; i++){
+    totalQuantity = totalQuantity + cartItems[i].quantity
+    totalPrice = totalPrice + cartItems[i].price
+  }  
+  res.render('users/admin', { cartItems: cartItems, totalPrice, totalQuantity});
 });
 router.get('/admin/delete/:id', async (req, res) => {
   await CartModel.findByIdAndDelete(req.params.id)
-    res.redirect('users/admin');
+    res.redirect('/users/admin');
 });
+router.get('/admin/detail/:id', async (req, res)=>{
+  var id = req.params.id;
+  var figures = await FigureModel.findById(id);
+  var dolls = await DollModel.findById(id);
+  const user = req.session.users;
+  if (figures) {
+      res.render('shop/detail', { product: figures, user: user });
+  } else if (dolls) {
+      res.render('shop/detail', { product: dolls, user: user });
+  }
+})
 module.exports = router;

@@ -110,9 +110,13 @@
                                 </p>
                                 <table class="table table-striped">
 
+                                      <tr><th>Price: {{totalPrice}}</th>
+                                      <th>Quantity: {{totalQuantity}}</th>
+                                      </tr>
                                         <tr>
-                                            <th>User ID</th>
-                                            <th>Product ID</th>
+                                            <th>User Name</th>
+                                            <th>Avatar</th>
+                                            <th>Product Image</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>Total</th>
@@ -121,8 +125,9 @@
 
                                         {{#each cartItems}}
                                         <tr>
-                                            <td>{{userId}}</td>
-                                            <td>{{product_id}}</td>
+                                            <td>{{userName}}</td>
+                                            <td><a href="/users/profile/{{userId}}"><img src="/images/{{userAvatar}}" alt="" width="150"></a></td>
+                                            <td><a href="/users/admin/detail/{{product_id}}"><img src="{{productImage}}" alt="" width="150"></a></td>
                                             <td>{{quantity}}</td>
                                             <td>{{price}}</td>
                                             <td>{{total}}</td>

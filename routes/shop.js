@@ -39,6 +39,7 @@ router.post('/cart', async (req, res) => {
 });
 router.post('/checkout', async (req, res) => {
     const productId = req.body.product_id;
+    const image = req.body.image;
     const quantity = parseInt(req.body.quantity);
     const product = await FigureModel.findById(productId) || await DollModel.findById(productId);
     const user = req.session.users;
@@ -47,7 +48,10 @@ router.post('/checkout', async (req, res) => {
         await product.save();
         const newCartItem = new CartModel({
             userId: user._id,
+            userName: user.name,
+            userAvatar: user.avatar,
             product_id: productId,
+            productImage: image,
             quantity: quantity,
             price: product.price,
             total: product.price * quantity,

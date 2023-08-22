@@ -40,18 +40,20 @@
                     <div class="user_option">
                         {{#if user}}
                         <div class="dropdown">
-                            <a href="/users/profile/{{user._id}}" class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a href="/users/profile/{{user._id}}" class="dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>
                                     Welcome, {{user.name}}!
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/users/profile/{{user._id}}"><i class="fa-solid fa-file-invoice"></i>
-                                <span>Profile</span>
-                                </a></li>
-                                <li><a class="dropdown-item" href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i>
+                                <li><a class="dropdown-item" href="/users/profile/{{user._id}}"><i
+                                            class="fa-solid fa-file-invoice"></i>
+                                        <span>Profile</span>
+                                    </a></li>
+                                <li><a class="dropdown-item" href="/users/logout"><i
+                                            class="fa-solid fa-right-from-bracket"></i>
                                         <span>
                                             Logout
                                         </span></a></li>
@@ -94,12 +96,6 @@
                 </div>
             </div>
         </section>
-        <div class="container">
-         <div class="mb-4 mt-4 containt_main">
-            <div class="main">
-            </div>
-         </div>
-      </div>
     </div>
     <section class="shop_section layout_padding">
 
